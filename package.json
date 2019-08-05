@@ -1,0 +1,43 @@
+{
+  "name": "validation-schema-example",
+  "version": "1.0.0",
+  "description": "A series of yup based validation schema for client side forms and server side models.",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest --config jestconfig.json",
+    "build": "rm -rf ./lib; tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SumoCreations/validation-schema-example.git"
+  },
+  "author": "Jim Jeffers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SumoCreations/validation-schema-example/issues"
+  },
+  "homepage": "https://github.com/SumoCreations/validation-schema-example#readme",
+  "dependencies": {
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/yup": "^0.26.12",
+    "jest": "^24.7.1",
+    "prettier": "^1.17.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.4.4"
+  }
+}
